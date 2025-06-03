@@ -1,29 +1,26 @@
 const aiService = require('../../services/aiService');
-const walletService = require('../../services/walletService');
 
 async function routes(fastify, options) {
-  fastify.post('/generate', async (request, reply) => {
+  fastify.post('/', async (request, reply) => {
     try {
-      // Generate meme coin details
-      const coinDetails = await aiService.generateMemeCoinDetails();
-      
-      // Generate meme image
-      const imagePrompt = `Create a fun meme coin logo for ${coinDetails.name}`;
-      const imageUrl = await aiService.generateMemeImage(imagePrompt);
-      
-      // Create wallet
-      const wallet = await walletService.createWallet();
-      
+      console.log("POST /api/generate hit");
+
+      // Generate brand identity
+      const brandDetails = await aiService.generateBrandIdentity();
+
+      // Generate logo image
+      const imagePrompt = `Create a clean, modern logo for a brand called ${brandDetails.name}`;
+      const imageUrl = await aiService.generateLogoImage(imagePrompt);
+
       return {
-        ...coinDetails,
-        imageUrl,
-        wallet: wallet.publicKey
+        ...brandDetails,
+        imageUrl
       };
     } catch (error) {
       fastify.log.error(error);
-      reply.code(500).send({ error: 'Failed to generate meme coin' });
+      reply.code(500).send({ error: 'Failed to generate brand identity' });
     }
   });
 }
 
-module.exports = routes; 
+module.exports = routes;

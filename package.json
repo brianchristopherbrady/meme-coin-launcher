@@ -1,5 +1,5 @@
 {
-  "name": "meme-coin-launcher",
+  "name": "store-synth",
   "version": "1.0.0",
   "description": "Automated meme coin launch system for Solana using pump.fun",
   "main": "api/index.js",
@@ -8,16 +8,20 @@
     "dev": "nodemon api/index.js"
   },
   "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@fastify/static": "^8.2.0",
     "@solana/web3.js": "^1.87.6",
     "axios": "^1.6.2",
     "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.3.1",
-    "fastify": "^4.24.3",
+    "fastify": "^5.3.3",
+    "node-fetch": "^2.7.0",
     "openai": "^4.20.1",
     "playwright": "^1.40.1",
-    "winston": "^3.11.0"
+    "winston": "^3.11.0",
+    "zod": "^3.25.49"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
   }
-} 
+}
