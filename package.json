@@ -1,0 +1,23 @@
+{
+  "name": "meme-coin-launcher",
+  "version": "1.0.0",
+  "description": "Automated meme coin launch system for Solana using pump.fun",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.87.6",
+    "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.24.3",
+    "openai": "^4.20.1",
+    "playwright": "^1.40.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+} 
